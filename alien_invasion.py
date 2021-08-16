@@ -75,6 +75,7 @@ class AlienInvasion:
 
     def _start_game(self):
         # Анулювати ігрову статистику.
+        self.settings.initialize_dynamic_settings()
         self.stats.reset_stats()
         self.stats.game_active = True
 
@@ -136,6 +137,7 @@ class AlienInvasion:
             # Знищити наявні кулі та створити новий флот.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         """Перевірити, чи флот знаходиться на краю, тоді оновити позиції всіх прибульців флоту."""
